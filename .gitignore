@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Environment
+.env
+
+# Logs
+*.log
+
+# Airflow
+airflow/logs/
+
+# OS
+.DS_Store
+
+credentials/
+*.json
+.env
+venv/
+__pycache__/credentials/
+.env
+*.json

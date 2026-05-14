@@ -1,0 +1,6 @@
+openai
+fastapi
+uvicorn
+pandas
+google-cloud-bigquery
+python-dotenv

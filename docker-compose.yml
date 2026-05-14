@@ -1,0 +1,37 @@
+
+
+services:
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zookeeper
+
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2180
+      ZOOKEEPER_TICK_TIME: 2000
+
+    ports:
+      - "2180:2180"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
+
+    depends_on:
+      - zookeeper
+
+    ports:
+      - "9096:9096"
+
+    environment:
+      KAFKA_BROKER_ID: 1
+
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2180
+
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9096
+
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+
